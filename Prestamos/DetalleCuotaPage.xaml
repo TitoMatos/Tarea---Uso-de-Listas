@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="Prestamos.DetalleCuotaPage"
+    Padding="10,50,10,10">
+    <ContentPage.Content>
+        <StackLayout>
+
+            
+            <Label Text="No."
+             FontSize="Large"
+             FontAttributes="Bold"
+             HorizontalTextAlignment="Center" />
+            <Label
+                x:Name="NumeroCuota"
+                Grid.Column="0" HorizontalTextAlignment="Center" FontSize="Medium"/>
+            <Label Text=" " FontSize="Medium" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Interes"
+             FontSize="Large"
+             FontAttributes="Bold"
+             HorizontalTextAlignment="Center" />
+            <Label
+                x:Name="InteresCuota"
+                Grid.Column="1" HorizontalTextAlignment="Center" FontSize="Medium"/>
+            <Label Text=" " FontSize="Medium" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Amortización"
+             FontSize="Large"
+             FontAttributes="Bold"
+             HorizontalTextAlignment="Center" />
+            <Label
+                x:Name="AmortizacionCuota"
+                Grid.Column="2" HorizontalTextAlignment="Center" FontSize="Medium"/>
+            <Label Text=" " FontSize="Medium" HorizontalTextAlignment="Center"/>
+
+            <Label Text="Total"
+             FontSize="Large"
+             FontAttributes="Bold"
+             HorizontalTextAlignment="Center" />
+            <Label
+                x:Name="TotalCuota"
+                Grid.Column="2" HorizontalTextAlignment="Center" FontSize="Medium"/>
+            <Label Text=" " HorizontalTextAlignment="Center" FontSize="Medium"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

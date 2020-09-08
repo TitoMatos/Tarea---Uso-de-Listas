@@ -1,0 +1,130 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    x:Class="Prestamos.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+            
+            <Style
+                TargetType="Entry">
+                <Setter
+                    Property="PlaceholderColor"
+                    Value="DarkGray" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Padding>
+        <OnPlatform
+            x:TypeArguments="Thickness">
+            <OnPlatform.Platforms>
+                <On
+                    Platform="iOS"
+                    Value="10, 50, 10, 0" />
+                <On
+                    Platform="Android"
+                    Value="10, 10, 10, 0" />
+            </OnPlatform.Platforms>
+        </OnPlatform>
+    </ContentPage.Padding>
+
+    <StackLayout
+        Orientation="Vertical"
+        HorizontalOptions="FillAndExpand"
+        VerticalOptions="FillAndExpand">
+
+        <Label Text="Calculadora de Prestamos"
+             FontSize="Large"
+             FontAttributes="Bold"
+             HorizontalTextAlignment="Center" />
+
+        <Entry
+            x:Name="Monto"
+            Placeholder="Monto del Prestamo"
+            Keyboard="Numeric" />
+
+        <Entry
+            x:Name="Tiempo"
+            Placeholder="Tiempo"
+            Keyboard="Numeric" />
+
+        <Entry
+            x:Name="Tasa"
+            Placeholder="Tasa"
+            Keyboard="Numeric" />
+
+        <Grid
+            x:Name="CalculoCuotaPrestamo"
+            IsVisible="False">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition
+                    Width="*" />
+                <ColumnDefinition
+                    Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Column="0"
+                x:Name="TituloMontoCuota"
+                Text="Monto:"
+                FontSize="Medium"/>
+            <Label
+                Grid.Column="1"
+                x:Name="MontoCuota"
+                FontSize="Large" />
+        </Grid>
+
+        <Button
+            x:Name="Calcular"
+            Text="Calcular Tabla de Amortizacion"
+            Clicked="Calcular_Clicked"
+            Style="{StaticResource PrimaryButton}" 
+            BackgroundColor="Green"/>
+
+        <ListView
+            x:Name="TablaAmortizacion"
+            HasUnevenRows="True"
+            ItemSelected="TablaAmortizacion_ItemSelected">
+            <ListView.Header>
+                <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="50" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="No." FontSize="Large" FontAttributes="Bold" Grid.Column="0"></Label>
+                    <Label Text="Interes" FontSize="Large" FontAttributes="Bold" Grid.Column="1"></Label>
+                    <Label Text="Capital" FontSize="Large" FontAttributes="Bold" Grid.Column="2"></Label>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid HorizontalOptions="FillAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition
+                            Width="50" />
+                        <ColumnDefinition
+                            Width="*" />
+                        <ColumnDefinition
+                            Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="{Binding Nro}" Grid.Column="0"></Label>
+                    <Label Text="{Binding InteresFormateado}" Grid.Column="1"></Label>
+                    <Label Text="{Binding AmortizacionFormateada}" Grid.Column="2"></Label>
+                </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
